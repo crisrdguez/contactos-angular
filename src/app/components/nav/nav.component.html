@@ -1,0 +1,19 @@
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/contacts">Contactos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/pag3">Pagina3</a>
+    </li>
+    <li class="nav-item" *ngIf="!estaLogueado()">
+      <a class="nav-link" routerLink="/login">Login</a>
+    </li>
+    <li class="nav-item" *ngIf="estaLogueado()">
+      <a class="nav-link" (click)="logout()">Logout</a>
+    </li>
+  </ul>
+
+
