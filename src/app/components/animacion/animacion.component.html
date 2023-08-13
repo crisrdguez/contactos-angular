@@ -1,0 +1,10 @@
+<app-nav></app-nav>
+<p>animacion works!</p>
+<div [@animaciones]="estado1" class="caja">
+    <p>Ejemplo animacion</p>
+</div>
+<div [@animaciones]="estado2" class="caja2">
+    <p>Ejemplo animacion 2</p>
+</div>
+<button mat-raised-button color="primary" (click)="subir()">Subir</button>
+<button mat-raised-button color="warn" (click)="bajar()">Bajar</button>

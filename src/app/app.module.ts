@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './components/nav/nav.component';
 import { MaterialModule } from './modules/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TableroDibujoComponent } from './components/tablero-dibujo/tablero-dibujo.component';
+import { AnimacionComponent } from './components/animacion/animacion.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginFormComponent,
     ContactFormComponent,
     ContactsPageComponent,
-    NavComponent
+    NavComponent,
+    TableroDibujoComponent,
+    AnimacionComponent
   
   ],
   imports: [
