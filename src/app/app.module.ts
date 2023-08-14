@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -15,6 +15,8 @@ import { MaterialModule } from './modules/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TableroDibujoComponent } from './components/tablero-dibujo/tablero-dibujo.component';
 import { AnimacionComponent } from './components/animacion/animacion.component';
+import { RandomContactComponent } from './components/random-contact/random-contact.component';
+import { ContactosTableComponent } from './components/contactos-table/contactos-table.component';
 
 
 @NgModule({
@@ -28,12 +30,15 @@ import { AnimacionComponent } from './components/animacion/animacion.component';
     ContactsPageComponent,
     NavComponent,
     TableroDibujoComponent,
-    AnimacionComponent
+    AnimacionComponent,
+    RandomContactComponent,
+    ContactosTableComponent,
   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     MaterialModule,
     //Importamos ReactiveModule para trabajar con formularios reactivos
     ReactiveFormsModule,

@@ -1,0 +1,66 @@
+{
+    "results": [
+      {
+        "gender": "female",
+        "name": {
+          "title": "Mademoiselle",
+          "first": "Jolanda",
+          "last": "Fournier"
+        },
+        "location": {
+          "street": {
+            "number": 7691,
+            "name": "Rue Louis-Blanqui"
+          },
+          "city": "Rhäzüns",
+          "state": "Basel-Stadt",
+          "country": "Switzerland",
+          "postcode": 2899,
+          "coordinates": {
+            "latitude": "-61.2631",
+            "longitude": "78.4171"
+          },
+          "timezone": {
+            "offset": "-5:00",
+            "description": "Eastern Time (US & Canada), Bogota, Lima"
+          }
+        },
+        "email": "jolanda.fournier@example.com",
+        "login": {
+          "uuid": "75c3ceb2-62e2-46ad-88bc-bb8966331e56",
+          "username": "smallpanda739",
+          "password": "radiohea",
+          "salt": "j4lAO3aG",
+          "md5": "8c658700d69c9653e23ac398bf154750",
+          "sha1": "38178757cb6cf33b4dd7579358cbd2429f78fb13",
+          "sha256": "7f80511821acda19a86bee969aba48153f7ed826a60a3164df46a96e0ea25bd7"
+        },
+        "dob": {
+          "date": "1974-10-20T15:24:35.455Z",
+          "age": 48
+        },
+        "registered": {
+          "date": "2013-11-19T14:05:00.647Z",
+          "age": 9
+        },
+        "phone": "076 193 47 86",
+        "cell": "079 381 49 57",
+        "id": {
+          "name": "AVS",
+          "value": "756.4104.7861.47"
+        },
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/women/41.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/women/41.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/41.jpg"
+        },
+        "nat": "CH"
+      }
+    ],
+    "info": {
+      "seed": "332ae9ab7ebfeadf",
+      "results": 1,
+      "page": 1,
+      "version": "1.4"
+    }
+  }

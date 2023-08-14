@@ -3,6 +3,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { LoginService } from './services/login.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

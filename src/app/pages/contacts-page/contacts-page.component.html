@@ -1,3 +1,22 @@
 <app-nav></app-nav>
-<p>contacts-page works!</p>
+<mat-toolbar>
+    <span>Contactos</span>
+  </mat-toolbar>
+<div class="container">
+    <app-random-contact [randomContact]="contact" [showRandomContact]="showRandomC"></app-random-contact><!--El @Input de randomcontact [randomContact] lo igualo a contacto, que es el nombre que le he puesto en contactpage-->
+    
+    <!--TODO quiero que desde los botones YES NO, el yes me guarde el contacto y el No genere un contacto aleatorio-->
+    <!--<button mat-raised-button (click)="obtenerNuevoContacto()">
+        Nuevo Contacto
+    </button>-->
+    
+    <!--
+    <button mat-raised-button (click)="obtenerListaContactos(5,'female')">
+        Contactos Aleatorios
+    </button>-->
+    <br>
+
+
+
+
 <button type="button" class="btn btn-outline-success" (click)="volverHome()">Volver a Home</button>

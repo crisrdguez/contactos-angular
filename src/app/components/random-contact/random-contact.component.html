@@ -1,0 +1,121 @@
+
+<h1>Contacto Aleatorio</h1>
+<div class="container">
+
+<ng-container *ngIf="randomContact; else noContact">
+    
+    <mat-card class="example-card">
+      
+        <mat-card-header>
+          <div mat-card-avatar>
+            <img [src]="randomContact.picture.thumbnail" />
+          </div>
+          <mat-card-title>{{randomContact.name.first}}</mat-card-title>
+          <mat-card-subtitle>
+            {{randomContact.gender==='female'?'**Mujer**':'**Hombre**'}} - {{randomContact.dob.age}} años
+          </mat-card-subtitle> 
+            
+        
+        </mat-card-header>
+        <div mat-card-image>
+            <img class="example-header-image" [src]="randomContact.picture.large" alt="Photo of contact" />
+        </div>
+        <mat-card-content>
+            <h3>{{randomContact.location.city}} - {{randomContact.location.state}}</h3>
+
+            <h2>
+                ¿Te gustaría conocer a {{randomContact.name.first}}?
+            </h2>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="guardarContacto()">YES</button>
+          <button mat-button (click)="obtenerNuevoContacto()">NO</button>
+        </mat-card-actions>
+      </mat-card>
+</ng-container>
+
+<ng-template #noContact>
+    <mat-spinner></mat-spinner>
+    <div *ngIf="showRandomContact">Cargando contacto aleatorio...</div>
+</ng-template>
+</div>
+
+<div>Mis contactos</div>
+<!--<app-contactos-table></app-contactos-table>-->
+<!--Filtro-->
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+</mat-form-field>
+
+<!--Tabla-->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Nombre Column -->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+  </ng-container>
+
+  <!-- Apellido Column -->
+  <ng-container matColumnDef="apellido">
+    <th mat-header-cell *matHeaderCellDef> Apellido </th>
+    <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+  </ng-container>
+
+  <!-- Ciudad Column -->
+  <ng-container matColumnDef="localidad">
+    <th mat-header-cell *matHeaderCellDef> Ciudad </th>
+    <td mat-cell *matCellDef="let element"> {{element.localidad}} </td>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <!-- Edad Column -->
+  <ng-container matColumnDef="edad">
+    <th mat-header-cell *matHeaderCellDef> Edad </th>
+    <td mat-cell *matCellDef="let element"> {{element.edad}} </td>
+  </ng-container>
+
+  <!-- Genero Column -->
+  <ng-container matColumnDef="genero">
+    <th mat-header-cell *matHeaderCellDef> Genero </th>
+    <td mat-cell *matCellDef="let element"> {{element.genero}} </td>
+  </ng-container>
+
+  <!--Acciones-->
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+    <td mat-cell *matCellDef="let element">  
+      <a class="pointer" style="color:blue" matTooltip="Ver contacto">
+        <mat-icon>search</mat-icon>
+      </a>
+      <a class="pointer" (click)="modificarContacto()" style="color:rgb(2, 92, 32)" matTooltip="Modificar contacto">
+        <mat-icon>edit</mat-icon>
+      </a>
+      <a class="pointer" (click)="eliminarContacto()" style="color:rgb(129, 15, 0)" matTooltip="Borrar contacto">
+        <mat-icon>delete</mat-icon>
+      </a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <!-- Row shown when there is no matching data. -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No hay ningun contacto "{{input.value}}"</td>
+  </tr>
+</table>
+
+<!--Paginacion-->
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+    aria-label="Select page of periodic elements">
+</mat-paginator>
