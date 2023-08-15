@@ -1,0 +1,61 @@
+.tablerodibujo {
+	border-top-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	width: auto;
+	
+}
+.tablerodibujo td {
+	width: 10px;
+	height:10px;
+	margin: 0px;
+	padding: 0px;
+}
+.color1 {
+	background-color:white;
+}
+.color2 {
+	background-color: red;
+}
+.color3 {
+	background-color:orange;
+}
+.color4 {
+	background-color: yellow;
+}
+.color5 {
+	background-color: blue;
+}
+.color6 {
+	background-color: rgb(61, 143, 238);
+}
+.color7 {
+	background-color: palevioletred;
+}
+.color8 {
+	background-color: rgb(10, 161, 68);
+}
+.color9 {
+	background-color:brown;
+}
+.color10 {
+	background-color:black;
+}
+
+#paleta td{
+	width: 60px;
+	height: 40px;
+}
+
+#pincel{
+	text-align: center;
+}
+
+.seleccionado{
+	border: medium solid #939;
+}

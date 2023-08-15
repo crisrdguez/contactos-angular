@@ -16,10 +16,14 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
+
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
   imports: [
     CommonModule,
+
   ],
   exports: [
     MatButtonModule,
@@ -33,7 +37,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatIconModule,
     MatTooltipModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+
   ]
 })
 export class MaterialModule { }

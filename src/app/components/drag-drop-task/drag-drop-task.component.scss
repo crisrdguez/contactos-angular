@@ -1,0 +1,94 @@
+.container {
+  width: 500px;
+  max-width: 100%;
+  margin: 10px 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.content{
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  width: 400px;
+  border: solid 1px #ccc;
+  min-height: 60px;
+  background: white;
+  border-radius: 4px;
+  display: block;
+  overflow: hidden;
+}
+
+.list-item {
+  padding: 20px 10px;
+  border-bottom: solid 1px #ccc;
+  box-sizing: border-box;
+  cursor: move;
+  background: rgb(250, 247, 255);
+  color: black;
+  font-size: 14px;
+}
+
+.list-item:last-child {
+  border: none;
+}
+
+/* Highlight the list item that is being dragged. */
+.cdk-drag-preview {
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+/* Animate items as they're being sorted. */
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Animate an item that has been dropped. */
+.cdk-drag-animating {
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+img{
+  margin-left: 90px;
+  width: 50%;
+  align-items: center;
+}
+
+//Estilos para niveles de tarea
+.facil{
+  color:green;
+}
+
+.media{
+  color:orange;
+}
+
+.dificil{
+  color:red
+}
+
+.urgente{
+  color:brown;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.bien{
+color:rgb(11, 121, 11);
+font-size: x-large;
+}
+
+.mal{
+color:rgb(175, 20, 20);
+font-size: x-large;
+}
+

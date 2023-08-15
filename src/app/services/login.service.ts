@@ -48,7 +48,12 @@ export class LoginService {
   }
 
   estaLogueadoService(){
-    return this.cookies.get("token");
+    if(this.cookies.get("token")){
+      return true;
+    }else{
+      return false;
+    }
+    //return this.cookies.get("token");
   }
 
   logoutService(){

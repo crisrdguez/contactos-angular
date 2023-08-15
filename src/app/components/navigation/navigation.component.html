@@ -1,0 +1,39 @@
+<mat-sidenav-container *ngIf="shouldShowNavigation()" class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/home']">Home</a>
+      <a mat-list-item [routerLink]="['/contacts']">Contactos</a>
+      <a mat-list-item [routerLink]="['/tareas']">Tareas</a>
+      <a mat-list-item [routerLink]="['/animacion']">Animación</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Proyecto Angular</span>
+      <ul class="nav justify-content-center login">
+        <li class="nav-item" *ngIf="!estaLogueado()">
+          <a class="nav-link login" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="estaLogueado()">
+          <a class="nav-link login" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -17,6 +17,20 @@ import { TableroDibujoComponent } from './components/tablero-dibujo/tablero-dibu
 import { AnimacionComponent } from './components/animacion/animacion.component';
 import { RandomContactComponent } from './components/random-contact/random-contact.component';
 import { ContactosTableComponent } from './components/contactos-table/contactos-table.component';
+import { TareasPageComponent } from './pages/tareas-page/tareas-page.component';
+
+
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { DragDropTaskComponent } from './components/drag-drop-task/drag-drop-task.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
+
+
 
 
 @NgModule({
@@ -33,6 +47,10 @@ import { ContactosTableComponent } from './components/contactos-table/contactos-
     AnimacionComponent,
     RandomContactComponent,
     ContactosTableComponent,
+    TareasPageComponent,
+    NavigationComponent,
+    DragDropTaskComponent
+
   
   ],
   imports: [
@@ -42,7 +60,13 @@ import { ContactosTableComponent } from './components/contactos-table/contactos-
     MaterialModule,
     //Importamos ReactiveModule para trabajar con formularios reactivos
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
