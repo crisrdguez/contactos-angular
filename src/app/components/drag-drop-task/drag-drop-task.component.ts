@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { ITask, LEVELS } from 'src/app/models/task.interface';
 
@@ -7,7 +7,22 @@ import { ITask, LEVELS } from 'src/app/models/task.interface';
   templateUrl: './drag-drop-task.component.html',
   styleUrls: ['./drag-drop-task.component.scss']
 })
-export class DragDropTaskComponent {
+export class DragDropTaskComponent implements OnInit{
+
+  constructor(){}
+
+  ngOnInit(): void {
+    const storedPendientes = localStorage.getItem('pendientes');
+    const storedRealizadas = localStorage.getItem('realizadas');
+  
+    if (storedPendientes && storedRealizadas) {
+      this.pendientes = JSON.parse(storedPendientes);
+      this.realizadas = JSON.parse(storedRealizadas);
+    } else {
+      localStorage.setItem('pendientes', JSON.stringify(this.pendientes));
+      localStorage.setItem('realizadas', JSON.stringify(this.realizadas));
+    }
+  }
 
   pendientes:ITask[]=[
     {
@@ -62,30 +77,29 @@ export class DragDropTaskComponent {
       level:LEVELS.Urgente
     }
   ]
-  /*
-  pendientes2 = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
 
-  realizadas2 = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];*/
 
   drop(event: CdkDragDrop<ITask[]>): void {
     if (event.previousContainer === event.container) {
+
+      console.log('misma columna:',event);
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+
     } else {
+      console.log('entre columnas:',event);
+      console.log('Debemos cambiar el estado de las task');
+
+      //Actualizamos el valor completed de la tarea
+      event.previousContainer.data[event.previousIndex].completed = !event.previousContainer.data[event.previousIndex].completed 
+      
+
       transferArrayItem(event.previousContainer.data,
           event.container.data,
           event.previousIndex,
           event.currentIndex);
+
+          localStorage.setItem('pendientes', JSON.stringify(this.pendientes));
+          localStorage.setItem('realizadas', JSON.stringify(this.realizadas));
     }
   }
 }
