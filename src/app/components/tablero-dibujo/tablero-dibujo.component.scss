@@ -11,8 +11,8 @@
 	
 }
 .tablerodibujo td {
-	width: 10px;
-	height:10px;
+	width: 15px;
+	height:15px;
 	margin: 0px;
 	padding: 0px;
 }
@@ -58,4 +58,12 @@
 
 .seleccionado{
 	border: medium solid #939;
+}
+
+table, th, td {
+	border: 1px solid black;
+  }
+
+.container{
+	margin-bottom: 20px;
 }

@@ -1,7 +1,45 @@
 <!--<app-nav></app-nav>-->
 
 <mat-toolbar>
-    <span>Home</span>
+    <div class="spanhome">
+        <span>Home</span>
+        <img class="home" src="../../../assets/img/home.png">
+    </div>   
 </mat-toolbar>
+
+<div class="row">
+    <div class="col-md-4 col-sm-6">
+        <div class="card p-3">
+            <img src="../../../assets/img/people.png" alt="Contactos" class="card-img-top">
+            <div class="card-body">
+              <h3 class="card-title">Contactos</h3>
+              <p class="card-text">¿Quieres conocer gente nueva? ¡Añade gente a tu lista de contactos!</p>
+              <a [routerLink]="['/contacts']" class="btn btn-outline-secondary">Ir a Contactos</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+        <div class="card p-3">
+            <img src="../../../assets/img/planificacion.png" alt="Contactos" class="card-img-top">
+            <div class="card-body">
+              <h3 class="card-title">Tareas</h3>
+              <p class="card-text">No pierdas el tiempo! Ponte manos a la obra y realiza tus tareas pendientes</p>
+              <a [routerLink]="['/tareas']" class="btn btn-outline-secondary">Ir a tareas</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+        <div class="card p-3">
+            <img src="../../../assets/img/herramientas.png" alt="Contactos" class="card-img-top">
+            <div class="card-body">
+              <h3 class="card-title">Tablero de dibujo</h3>
+              <p class="card-text">Relajate un rato y ponte a pintar</p>
+              <a [routerLink]="['/animacion']" class="btn btn-outline-secondary">Ir a Dibujar</a>
+            </div>
+        </div>
+    </div>       
+    
+</div>
+
 
 
