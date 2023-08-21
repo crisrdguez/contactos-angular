@@ -87,7 +87,7 @@
   <!-- Genero Column -->
   <ng-container matColumnDef="genero">
     <th mat-header-cell *matHeaderCellDef> Genero </th>
-    <td mat-cell *matCellDef="let element"> {{element.genero}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.genero == "male" ? "Hombre":"Mujer"}} </td>
   </ng-container>
 
   <!--Acciones-->
@@ -100,9 +100,13 @@
       <a class="pointer" (click)="modificarContacto()" style="color:rgb(2, 92, 32)" matTooltip="Modificar contacto">
         <mat-icon>edit</mat-icon>
       </a>
-      <a class="pointer" (click)="eliminarContacto()" style="color:rgb(129, 15, 0)" matTooltip="Borrar contacto">
+
+
+      <a class="pointer" (click)="eliminarContacto(element.id)" style="color:rgb(129, 15, 0)" matTooltip="Borrar contacto">
         <mat-icon>delete</mat-icon>
       </a>
+
+      
     </td>
   </ng-container>
 

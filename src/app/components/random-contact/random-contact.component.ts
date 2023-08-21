@@ -21,6 +21,7 @@ export class RandomContactComponent implements OnInit, AfterViewInit{
   @Input() showRandomContact:boolean=false;
 
   //Datos que quiero guardar en la bbdd, los cojo del IRandomContact si le doy a YES
+  id:string | undefined;
   nombre:string | undefined;
   apellido:string | undefined;
   localidad:string | undefined;
@@ -103,6 +104,7 @@ export class RandomContactComponent implements OnInit, AfterViewInit{
     //uso de firebase.// schematics
 
     //Accedo a los datos de randomContact
+    this.id = this.randomContact?.id.value;
     this.nombre = this.randomContact?.name.first;
     this.apellido = this.randomContact?.name.last;
     this.localidad = this.randomContact?.location.city;
@@ -111,10 +113,19 @@ export class RandomContactComponent implements OnInit, AfterViewInit{
     this.genero = this.randomContact?.gender;
     console.log("Dentro del metodo guardarContacto, tras pulsar en yes:");
     console.log(this.nombre);
+    console.log(this.id);
 
-    const contactoNuevo = new Contacto(this.nombre,this.apellido,this.localidad,this.email,this.edad,this.genero);
+    const contactoNuevo = new Contacto(this.id, this.nombre,this.apellido,this.localidad,this.email,this.edad,this.genero);
 
     this.contactoService.agregarContactoServicio(contactoNuevo);
+
+    // Actualizamos el dataSource de la tabla con la nueva lista de contactos
+    this.dataSource.data = this.contactos;
+
+    // Actualizamos el paginador para que funcione con la nueva lista de contactos
+    this.dataSource.paginator = this.paginator;
+
+    
     
 
     //despues de agregar el contacto que quiero, tengo que generar nuevo contacto, por lo que llamo a obtener nuevo contacto
@@ -141,12 +152,28 @@ export class RandomContactComponent implements OnInit, AfterViewInit{
 
   //Modificar contacto
   modificarContacto(){
-    alert("Contacto modificado");
+    alert("No tienes permisos para modificar el contacto");
   }
 
   //Eliminar Contacto
-  eliminarContacto(){
-    alert("Contacto eliminado");
+  eliminarContacto(id:string){
+    //llamo al metodo que modifica empleados dentro de mi servicio
+    if(id != undefined){
+      this.contactoService.eliminarContacto(id);
+
+      // Actualizamos la lista de contactos en este componente
+  this.contactos = this.contactos.filter(contacto => contacto.id !== id);
+
+  // Actualizamos el dataSource de la tabla con la nueva lista de contactos
+  this.dataSource.data = this.contactos;
+
+  // Actualizamos el paginador para que funcione con la nueva lista de contactos
+  this.dataSource.paginator = this.paginator;
+
+    }else{
+      alert("ese id no existe");
+    }
+    
   }
 
  

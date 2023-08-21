@@ -1,4 +1,6 @@
 
 <!--Router Oulet renderiza el componente que indique el Routing Module a partir de la url activa-->
+
 <app-navigation></app-navigation>
-<router-outlet></router-outlet>
+<router-outlet *ngIf="!estaLogueado()"></router-outlet>
+

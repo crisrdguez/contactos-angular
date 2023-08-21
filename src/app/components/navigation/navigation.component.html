@@ -1,4 +1,4 @@
-<mat-sidenav-container *ngIf="shouldShowNavigation()" class="sidenav-container">
+<mat-sidenav-container *ngIf="estaLogueado()" class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -8,7 +8,7 @@
       <a mat-list-item [routerLink]="['/home']">Home</a>
       <a mat-list-item [routerLink]="['/contacts']">Contactos</a>
       <a mat-list-item [routerLink]="['/tareas']">Tareas</a>
-      <a mat-list-item [routerLink]="['/animacion']">Animación</a>
+      <a mat-list-item [routerLink]="['/animacion']">A Pintar</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -23,7 +23,7 @@
       </button>
       <span>Proyecto Angular</span>
       <ul class="nav justify-content-center login">
-        <li class="nav-item" *ngIf="!estaLogueado()">
+        <li class="nav-item" *ngIf="!estaLogueado() && isLoginPage()">
           <a class="nav-link login" routerLink="/login">Login</a>
         </li>
         <li class="nav-item" *ngIf="estaLogueado()">

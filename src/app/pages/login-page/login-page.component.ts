@@ -18,17 +18,27 @@ export class LoginPageComponent implements OnInit{
   }
 
   ngOnInit(): void {
+
+    if (this.loginService.estaLogueadoService()) {
+      this.router.navigate(['/home']); // Redirige a la página de inicio si ya está autenticado
+    }
     
-      let token = sessionStorage.getItem('token');
+    /*  let token = sessionStorage.getItem('token');
 
       if(token){
-        this.router.navigate(['home']);
-      }
+        this.router.navigate(['/home']);
+      }*/
+
+
   }
 
   loginUser(value:any){ //aqui recibiriamos un objeto
 
-    let {email, password} = value; //de esta manera accederiamos a ellos
+    var {email, password} = value; //de esta manera accederiamos a ellos
+
+    //harcodeo los datos
+    email="admin@admin.com";
+    password="admin1"
 
     this.loginService.login(email,password);
 

@@ -4,7 +4,7 @@
     <table width="900" border="1" id="paleta" summary="Tabla de selección de colores">
       <caption>Haga click en un color para comenzar a pintar</caption>
       <tr><td *ngFor="let color of colores" [ngClass]="[color, color === miColor ? 'seleccionado' : '']" (click)="cambioColor(color)"></td></tr>
-    <tr><td colspan="10" id="pincel">{{estado ? 'Click aqui para desactivar pincel. Estado: PINCEL ACTIVADO' : 'Click aqui para activar pincel. Estado: PINCEL DESACTIVADO'}}</td></tr>
+    <tr><td colspan="10" id="pincel">{{estado ? 'Click en el tablero de dibujo para activar pincel. Estado: PINCEL ACTIVADO' : 'Click en el tablero de dibujo para activar pincel. Estado: PINCEL DESACTIVADO'}}</td></tr>
     </table>
     <p></p>
     <div id="zonadibujo">

@@ -9,6 +9,7 @@ export class ContactosService {
 
   contactos:Contacto[]=[];
 
+
   constructor(private datosContactos:DatosContactosService) {
 
     /*
@@ -37,7 +38,7 @@ export class ContactosService {
   }
 
   agregarContactoServicio(contacto:Contacto){
-    //Uso de firebase, despues de agregar un contacto al array contactos, tendre que enviar el array empleados(con los que ya meti en la bbdd en su dia), mas el que acabo de agregar
+    //Uso de firebase, despues de agregar un contacto al array contactos, tendre que enviar el array contactos(con los que ya meti en la bbdd en su dia), mas el que acabo de agregar
     this.contactos.push(contacto);
     console.log(this.contactos);
 
@@ -45,5 +46,39 @@ export class ContactosService {
 
     //Para hacer esto tenemos que usar el servicio datosContactoService.service, para eso inyecto el servicio data en este de contactos en el constructos
     this.datosContactos.guardarContacto(this.contactos);
+  }
+
+  
+
+  buscaContacto(id:string):number{
+
+    for (let i = 0; i < this.contactos.length; i++) {
+      if (this.contactos[i].id === id) {
+        return i;
+      }
+    }
+    return -1; //Retorna -1 si el contacto no se encuentra
+
+  }
+
+  eliminarContacto(id:string){
+
+    //Busco la posicion del contacto que quiero eliminar
+    const pos = this.buscaContacto(id);
+
+    if(pos!== -1){//Verificamos si se encontro el contacto
+      this.contactos.splice(pos,1); //desde el indice que le hemos pasado, queremos borrar un unico contacto
+
+      //Usamos firebase
+      this.datosContactos.eliminaContacto(id);
+
+      //Reconstruir y guardar el array contactos en la base de datos
+      this.datosContactos.guardarContacto(this.contactos);
+      alert("Contacto eliminado");
+    }else{
+      alert("Contacto no encontrado");
+    }
+
+    
   }
 }

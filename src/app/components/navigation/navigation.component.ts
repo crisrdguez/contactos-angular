@@ -31,7 +31,15 @@ export class NavigationComponent {
       this.loginservice.logoutService();
     }
 
-    shouldShowNavigation(): boolean {
+    /*shouldShowNavigation(): boolean {
+      console.log("metodo shouldS: ");
+      console.log( this.router.url !== '/login' && this.estaLogueado());
       return this.router.url !== '/login' && this.estaLogueado();
+    }*/
+
+    isLoginPage(): boolean {
+      const currentPath = this.router.url;
+      console.log(currentPath);
+      return currentPath === '/login';
     }
 }

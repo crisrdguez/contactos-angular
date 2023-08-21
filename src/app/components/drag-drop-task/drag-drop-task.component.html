@@ -3,7 +3,7 @@
 
 <div class="container">
   <h2>Pendientes</h2>
-
+  <img class="flecha" src="../../../assets/img/derecha.png">
   <ng-container *ngIf="pendientes.length === 0">
     <img src="../../../assets/img/terminar.png">
     <p ngClass="bien">No hay tareas pendientes ¡Genial, ya puedes leer!</p>
@@ -29,7 +29,7 @@
 
 <div class="container">
   <h2>Realizadas</h2>
-
+  <img class="flecha" src="../../../assets/img/izquierda.png">
   <ng-container *ngIf="realizadas.length === 0">
     <img src="../../../assets/img/ranura.png">
     <p ngClass="mal">Venga!! Empieza a realizar tus tareas pendientes, no seas vaga!!</p>
@@ -49,4 +49,6 @@
     </div>
   </div>
 </div>
+</div>
+
 </div>
