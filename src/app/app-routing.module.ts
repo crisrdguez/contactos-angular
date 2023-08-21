@@ -7,7 +7,9 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { loginGuard } from './guards/login-guard';
 import { AnimacionComponent } from './components/animacion/animacion.component';
 import { TareasPageComponent } from './pages/tareas-page/tareas-page.component';
+import { AreaPrivadaComponent } from './pages/area-privada/area-privada.component';
 
+/*
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path:'login', component:LoginPageComponent},
@@ -16,7 +18,18 @@ const routes: Routes = [
   {path:'tareas', component:TareasPageComponent,canActivate:[loginGuard]},
   {path:'animacion', component:AnimacionComponent,canActivate:[loginGuard]},
   {path:'**',component:NotFoundPageComponent}
-];
+];*/
+
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path:'login', component:LoginPageComponent},
+  {path:'home', component:HomePageComponent},//canActivate: [authGuard]  para que no nos deje ir al home si no nos logueamos ,canActivate: [authGuard]
+  {path:'contacts', component:ContactsPageComponent},
+  {path:'tareas', component:TareasPageComponent},
+  {path:'animacion', component:AnimacionComponent},
+  {path:'areaprivada', component:AreaPrivadaComponent,canActivate:[loginGuard]},
+  {path:'**',component:NotFoundPageComponent}
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

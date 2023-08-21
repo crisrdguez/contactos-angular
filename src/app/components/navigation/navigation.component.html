@@ -1,4 +1,4 @@
-<mat-sidenav-container *ngIf="estaLogueado()" class="sidenav-container">
+<mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -9,6 +9,7 @@
       <a mat-list-item [routerLink]="['/contacts']">Contactos</a>
       <a mat-list-item [routerLink]="['/tareas']">Tareas</a>
       <a mat-list-item [routerLink]="['/animacion']">A Pintar</a>
+      <a mat-list-item [routerLink]="['/areaprivada']">Area Privada</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

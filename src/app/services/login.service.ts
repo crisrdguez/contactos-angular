@@ -30,7 +30,7 @@ export class LoginService {
           this.cookies.set("token",this.token);
           //redireccionamos
           //console.log("El token es " + this.token);
-          this.router.navigate(['/home']);
+          this.router.navigate(['/areaprivada']);
 
         }
 
@@ -63,7 +63,7 @@ export class LoginService {
 
       this.cookies.set("token",this.token);
 
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
 
       window.location.reload(); //actualiza la pagina
     })

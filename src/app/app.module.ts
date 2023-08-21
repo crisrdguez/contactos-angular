@@ -28,6 +28,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { DragDropTaskComponent } from './components/drag-drop-task/drag-drop-task.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { AreaPrivadaComponent } from './pages/area-privada/area-privada.component';
 
 
 
@@ -49,7 +50,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ContactosTableComponent,
     TareasPageComponent,
     NavigationComponent,
-    DragDropTaskComponent
+    DragDropTaskComponent,
+    AreaPrivadaComponent
 
   
   ],
