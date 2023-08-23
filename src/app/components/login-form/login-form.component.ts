@@ -1,5 +1,5 @@
 import { Component, OnInit, Output ,EventEmitter} from '@angular/core';
-
+import { Clipboard } from '@angular/cdk/clipboard';
 //Importamos lo necesario para construir el formulario
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -16,7 +16,7 @@ export class LoginFormComponent implements OnInit{
  @Output() loginAction:EventEmitter<{}> = new EventEmitter<{}>(); //con esto podremos emitir el objeto, que seran los valores del formulario
  //Se lo tendremos que pasar a nuestro componente superior, en este caso nuestra form page
 
- constructor(private formbuilder:FormBuilder){}
+ constructor(private formbuilder:FormBuilder, private clipboard:Clipboard){}
 
 
   ngOnInit(): void {
@@ -53,6 +53,12 @@ export class LoginFormComponent implements OnInit{
       //this.loginForm.reset();
     }
 
+  }
+
+  //copia el user y la pass cuando pulsas sobre esa palabra
+  copyToClipboard(text: string) {
+    this.clipboard.copy(text);
+    //alert('Texto copiado al portapapeles: ' + text);
   }
 
 }

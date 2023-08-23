@@ -1,0 +1,32 @@
+.container{
+    position:relative;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+.private-content {
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    padding: 1em;
+    margin-top: 2em;
+}
+
+.banner {
+    background: linear-gradient(to right, #7793b1, #8521d6);
+    margin-top: 20px;
+    margin-bottom: 30px;
+    height: 90px; /* Ajusta la altura del banner según tus preferencias */
+    width: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; 
+    
+  }

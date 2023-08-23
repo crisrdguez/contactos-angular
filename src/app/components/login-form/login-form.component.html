@@ -42,13 +42,14 @@
                 
             
             </form>
+            <mat-card class="fondolila">
+                <mat-card-content>Este proyecto está hecho con fines didácticos, si quieres acceder al área privada utiliza:</mat-card-content>
+                <mat-card-content>usuario: <strong (click)="copyToClipboard('admin@admin.com')" matTooltip="copy admin@admin.com">admin@admin.com<mat-icon style="color:rgb(69, 5, 112)">file_copy</mat-icon></strong></mat-card-content><br>
+                <mat-card-content>password: <strong (click)="copyToClipboard('admin1')" matTooltip="copy admin1">admin1<mat-icon style="color:rgb(69, 5, 112)">file_copy</mat-icon></strong></mat-card-content>
+                <i class="bi bi-search"></i>
+            </mat-card>
         </mat-card-content>
-        <div>Este proyecto está hecho con fines didácticos, si quieres acceder al área privada utiliza:
-            <ul>
-                <li>usuario: admin@admin.com</li>
-                <li>password: admin1</li>
-            </ul>
-        </div>
-    </mat-card>
 
+    </mat-card>
+    
     
