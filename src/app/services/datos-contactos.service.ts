@@ -1,3 +1,7 @@
+/*
+
+COMENTO ESTE SERVICIO - PREFIERO SIMULAR LA BBDD PARA MAYOR SEGURIDAD
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginService } from './login.service';
@@ -17,7 +21,7 @@ export class DatosContactosService {
     //tenemos que decirle que cargue los contactos utilizando la autenticacion firmada en el token, por eso hemos inyectado en el constructor el loginservice
     const token=this.loginService.getIdToken();
     
-    //return this.http.get("https://contactos-4f6c7-default-rtdb.europe-west1.firebasedatabase.app/datos.json?auth="+token);
+    //Ya no existe la BBDD en firebase, la borre por seguridad
     return this.http.get("https://contactosapp-6f472-default-rtdb.europe-west1.firebasedatabase.app/datos.json?auth="+token);
     
 
@@ -37,7 +41,7 @@ export class DatosContactosService {
     //con post se generaba un nuevo registro con todos los datos, mas los que voy agregando
     const token=this.loginService.getIdToken();
 
-    //this.http.put("https://contactos-4f6c7-default-rtdb.europe-west1.firebasedatabase.app/datos.json?auth="+token,contactos).subscribe({//copio la url y añado al final datos.json y lo que quiero guardar, en este caso contactos*/
+    //Ya no existe la BBDD en firebase, la borre por seguridad
     this.http.put("https://contactosapp-6f472-default-rtdb.europe-west1.firebasedatabase.app/datos.json?auth="+token,contactos).subscribe({
     next(response){
         console.log("Se han guardado los contactos: " + response)
@@ -56,7 +60,7 @@ export class DatosContactosService {
   eliminaContacto(id:string){
     const token=this.loginService.getIdToken();
 
-    //let url = `https://mis-clientes-ce40f-default-rtdb.europe-west1.firebasedatabase.app/datos/${id}.json?auth=${token}`;
+    //Ya no existe la BBDD en firebase, la borre por seguridad
     let url = `https://contactosapp-6f472-default-rtdb.europe-west1.firebasedatabase.app/datos/${id}.json?auth=${token}`;
 
     this.http.delete(url).subscribe({
@@ -73,4 +77,4 @@ export class DatosContactosService {
 
   }
 
-}
+}*/

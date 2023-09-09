@@ -54,17 +54,28 @@ export class RandomContactComponent implements OnInit, AfterViewInit{
 
    //Para que funcione el paginador, tengo que asegurarme que los datos (que se cargan de manera asincrona) se cargan antes de usar el paginator
    ngAfterViewInit() {
+    /* ESTO LO USABA CON BBDD, USANDO OBSERVABLE
     // Utiliza switchMap para manejar datos asíncronos y evitar inicialización prematura del paginador
     this.contactoService.obtenerContactosBBDD().pipe(
-      tap(misContactos => {
+      tap((misContactos: Contacto[]) => {
+        
         this.contactos = Object.values(misContactos);
         this.contactoService.setContactos(this.contactos);
         this.dataSource = new MatTableDataSource(this.contactos);
+        
       })
     ).subscribe(() => {
       // El paginador se inicializará después de que los datos se hayan cargado en el dataSource
       this.dataSource.paginator = this.paginator;
-    });
+    });*/
+    // Obtiene los contactos directamente del servicio
+    this.contactos = this.contactoService.obtenerContactosBBDD();
+
+    // Crea el MatTableDataSource a partir del array de contactos
+    this.dataSource = new MatTableDataSource(this.contactos);
+
+    // Configura el paginador después de cargar los datos
+    this.dataSource.paginator = this.paginator;
   }
 
   constructor(private randomContactService:RandomContactService, private contactoService:ContactosService){
@@ -75,10 +86,11 @@ export class RandomContactComponent implements OnInit, AfterViewInit{
 
   ngOnInit(): void {
 
+    /* ESTO LO USABA PARA LA BBDD CON FIREBASE, ANTES EL METODO ME DEVOLVIA UN OBSERVABLE
     const self=this; //Capturar el contexto actual, Al capturar el contexto actual en la variable self, aseguras que puedes acceder correctamente a las propiedades y métodos del componente en el contexto de la función subscribe.
 
     this.contactoService.obtenerContactosBBDD().subscribe({
-      next(misContactos) {
+      next(misContactos: Contacto[]) {
         console.log("misContactos:")
           console.log(misContactos);
           
@@ -94,8 +106,9 @@ export class RandomContactComponent implements OnInit, AfterViewInit{
 
           
       },
-    })
-   
+    })*/
+    this.contactos = this.contactoService.obtenerContactosBBDD(); // Asigna el array directamente
+    this.dataSource = new MatTableDataSource(this.contactos);
       
   }
 
