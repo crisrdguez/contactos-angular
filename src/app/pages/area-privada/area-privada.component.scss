@@ -6,27 +6,41 @@
 }
 
 main {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 2em;
 }
 
-.private-content {
-    background-color: #f7f7f7;
-    border-radius: 5px;
-    padding: 1em;
-    margin-top: 2em;
-}
+
 
 .banner {
     background: linear-gradient(to right, #7793b1, #8521d6);
-    margin-top: 20px;
+    margin-top: 1px;
     margin-bottom: 30px;
-    height: 90px; /* Ajusta la altura del banner según tus preferencias */
+    height: 120px; /* Ajusta la altura del banner según tus preferencias */
     width: 200%;
-    position: absolute;
     top: 0;
     left: 0;
     z-index: 1; 
     
+  }
+
+  footer p{
+    display: flex;
+    justify-content: right;
+  }
+
+  h1{
+    color:whitesmoke;
+    font-size: 1.7rem;
+    padding-top: 40px;
+    margin-left: 200px;
+  }
+
+  .info{
+    padding:10px;
+    font-size: large;
+    border: 1px solid gray;
+    border-radius: 20px;
+    background-color: rgb(237, 244, 247);
+    margin-bottom: 20px;
   }
