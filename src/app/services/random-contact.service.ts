@@ -8,6 +8,21 @@ import { Results } from '../models/contact.interface';
   providedIn: 'root'
 })
 export class RandomContactService {
+  protocolo:string = "https";
+  dominio:string ="randomuser.me";
+  puerto:string="";
+  raizContexo:string="/api";
+
+  getUrl():string{
+
+    let url:string = `${this.protocolo}//${this.dominio}`;
+
+    if(this.puerto!==""){
+      url += `:${this.puerto}`;
+    }
+    return `${url}${this.raizContexo}`;
+
+  }
 
   constructor(private http:HttpClient) { }
 
