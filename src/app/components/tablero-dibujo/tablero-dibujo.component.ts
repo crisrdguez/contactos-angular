@@ -51,4 +51,17 @@ export class TableroDibujoComponent implements OnInit{
     casilla.className = this.miColor; // Cambia la clase para cambiar el color
   }
 
+  pintarTouch(event: TouchEvent) {
+    event.preventDefault();
+    const touches = event.touches;
+    if (touches && touches.length > 0) {
+      const touch = touches[0];
+      const elemento = document.elementFromPoint(touch.clientX, touch.clientY) as HTMLTableCellElement;
+  
+      if (elemento && elemento.tagName === 'TD') {
+        elemento.className = this.miColor;
+      }
+    }
+  }
+
 }

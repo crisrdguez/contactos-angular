@@ -1,7 +1,7 @@
 <div class="container">
     <p>TABLERO DE DIBUJO EN JAVASCRIPT</p>
 
-    <table width="900" border="1" id="paleta" summary="Tabla de selección de colores">
+    <table class="table" border="1" id="paleta" summary="Tabla de selección de colores">
       <caption>Haga click en un color para comenzar a pintar</caption>
       <tr><td *ngFor="let color of colores" [ngClass]="[color, color === miColor ? 'seleccionado' : '']" (click)="cambioColor(color)"></td></tr>
     <tr><td colspan="10" id="pincel">{{estado ? 'Click en el tablero de dibujo para activar pincel. Estado: PINCEL ACTIVADO' : 'Click en el tablero de dibujo para activar pincel. Estado: PINCEL DESACTIVADO'}}</td></tr>
@@ -10,7 +10,7 @@
     <div id="zonadibujo">
       <table class="tablerodibujo" id="tablero" (click)="comienzaPintar()">
         <tr *ngFor="let fila of casillas; let i = index">
-          <td *ngFor="let casilla of fila; let j = index" [attr.id]="'casilla' + i + '-' + j" (mouseover)="estado ? pintar($event) : null"></td>
+          <td *ngFor="let casilla of fila; let j = index" [attr.id]="'casilla' + i + '-' + j" (mouseover)="estado ? pintar($event) : null" (touchmove)="estado ? pintarTouch($event) : null"></td>
         </tr>
       </table>
     </div>
