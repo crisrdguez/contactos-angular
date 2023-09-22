@@ -1,4 +1,4 @@
-.home{
+/*.home{
     max-width: 40px;
     margin-left: 15px;
 }
@@ -13,4 +13,48 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+}*/
+
+/* Estilos para la imagen del logotipo en la barra de herramientas */
+.mat-toolbar .spanhome {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mat-toolbar img.home {
+    max-width: 40px;
+    margin-left: 15px;
+  }
+  
+  /* Estilos para las imágenes en las tarjetas */
+  .card-img-top {
+    max-width: 100%; /* Las imágenes se ajustarán al ancho del contenedor */
+    height: auto; /* Mantenemos la relación de aspecto original */
+  }
+  
+  /* Estilos para el contenedor principal */
+  .contenedor {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en filas en pantallas pequeñas */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Estilos para las tarjetas */
+  .card {
+    width: 100%;
+    margin: 10px;
+  }
+  
+  /* Estilos específicos para pantallas pequeñas */
+  @media screen and (max-width: 578px) {
+    .contenedor {
+      flex-direction: column; /* Las tarjetas se apilarán una encima de la otra en pantallas pequeñas */
+      align-items: center; /* Centra las tarjetas verticalmente */
+    }
+  
+    .card {
+      max-width: 80%; /* Reduzca el ancho máximo de las tarjetas en pantallas pequeñas */
+    }
+  }

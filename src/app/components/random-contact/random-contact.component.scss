@@ -16,11 +16,6 @@
     text-align: center;
   }
 
-  table {
-    width: 100%;
-    margin-top: 10px;
-  }
-
   .pointer{
     cursor:pointer;
   }
@@ -34,11 +29,28 @@
     
     border: 1px solid black;
     margin-right: 20px;
-   
-
+  
   }
 
   .botones{
     display: flex;
     justify-content: center;
   }
+
+//Tabla
+.table-container {
+  overflow-x: auto; /* Agrega un scroll horizontal cuando sea necesario */
+  max-width: 100%; /* Ajusta el ancho máximo del contenedor */
+}
+
+table {
+  width: 100%; /* Ajusta el ancho de la tabla al 100% del contenedor */
+}
+
+/* Añade reglas de texto truncado para las celdas */
+td.mat-cell {
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
